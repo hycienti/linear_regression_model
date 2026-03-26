@@ -23,6 +23,8 @@ class _PredictorScreenState extends State<PredictorScreen> {
   final _scoresKey = GlobalKey();
   final _submitKey = GlobalKey();
 
+  TutorialCoachMark? _tutorialCoachMark;
+
   // Form state — no controllers needed, sliders enforce bounds
   int _gender = 0; // 0 = Female, 1 = Male
   bool _partTimeJob = false;
@@ -80,7 +82,7 @@ class _PredictorScreenState extends State<PredictorScreen> {
 
     final colorScheme = Theme.of(context).colorScheme;
 
-    TutorialCoachMark(
+    _tutorialCoachMark = TutorialCoachMark(
       targets: targets,
       colorShadow: colorScheme.surface,
       opacityShadow: 0.92,
@@ -102,7 +104,8 @@ class _PredictorScreenState extends State<PredictorScreen> {
         });
         return true;
       },
-    ).show(context: context);
+    );
+    _tutorialCoachMark!.show(context: context);
   }
 
   TargetFocus _buildTarget(String id, GlobalKey key, ContentAlign align,
@@ -176,19 +179,29 @@ class _PredictorScreenState extends State<PredictorScreen> {
           const SizedBox(height: 14),
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              decoration: BoxDecoration(
-                color: colorScheme.primary,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Text(
-                isLast ? 'GOT IT' : 'NEXT',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: colorScheme.onPrimary,
-                  letterSpacing: 1,
+            child: GestureDetector(
+              onTap: () {
+                if (isLast) {
+                  _tutorialCoachMark?.finish();
+                } else {
+                  _tutorialCoachMark?.next();
+                }
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  color: colorScheme.primary,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  isLast ? 'GOT IT' : 'NEXT',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: colorScheme.onPrimary,
+                    letterSpacing: 1,
+                  ),
                 ),
               ),
             ),
