@@ -6,6 +6,7 @@ class StudentFeatures(BaseModel):
     absence_days: int
     extracurricular_activities: int
     weekly_self_study_hours: int
+    career_aspiration: str
     history_score: int
     physics_score: int
     chemistry_score: int
