@@ -1,3 +1,8 @@
+## Video Demo
+
+[YouTube Demo Video](https://youtu.be/268GUJ5lKtY)
+
+
 # Student Math Score Predictor
 
 Predicting a student's math score based on study habits, attendance, extracurricular involvement, demographic info, and other subject scores. Schools and educators want to identify students who may struggle in a subject **before** they fail. By predicting a student's score from things we already know, teachers can intervene early and provide targeted support. The model is trained on a dataset of 2,000 students with 17 features using multiple regression algorithms, with Random Forest selected as the best performer.
