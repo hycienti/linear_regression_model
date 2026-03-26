@@ -54,7 +54,7 @@ Predicting a student's math score based on study habits, attendance, extracurric
 
 ## Video Demo
 
-[YouTube Demo Video](https://youtube.com/your-video-link)
+[YouTube Demo Video](https://youtu.be/268GUJ5lKtY)
 
 ## Project Structure
 
