@@ -4,9 +4,9 @@ Predicting a student's math score based on study habits, attendance, extracurric
 
 ## API Endpoint
 
-**Base URL:** `https://your-deployed-url.com`
+**Base URL:** `https://linearregressionmodel-production-f10b.up.railway.app`
 
-**Swagger UI:** `https://your-deployed-url.com/docs`
+**Swagger UI:** `https://linearregressionmodel-production-f10b.up.railway.app/docs`
 
 ### `POST /predict`
 
@@ -95,7 +95,7 @@ summative/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/linear_regression_model.git
+git clone https://github.com/hycienti/linear_regression_model.git
 cd linear_regression_model
 ```
 
@@ -132,7 +132,7 @@ Edit the `.env` file to point to your running API:
 ```env
 API_URL=http://10.0.2.2:8000    # For Android emulator
 # API_URL=http://localhost:8000  # For iOS simulator or web
-# API_URL=https://your-deployed-url.com  # For production
+# API_URL=https://linearregressionmodel-production-f10b.up.railway.app  # For production
 ```
 
 > **Note:** Android emulators cannot reach `localhost` directly. Use `10.0.2.2` which maps to the host machine's `localhost`. For physical devices, use your machine's local IP address or the deployed URL.
@@ -152,17 +152,6 @@ flutter run -d android   # Android emulator/device
 flutter run -d ios       # iOS simulator/device
 flutter run -d macos     # macOS desktop
 ```
-
-### 5. Deploy the API (for public access)
-
-To make the API publicly accessible (required for assessment via Swagger UI), deploy it to a cloud platform. Example using Render:
-
-1. Push your code to GitHub
-2. Create a new **Web Service** on [Render](https://render.com)
-3. Set the **Root Directory** to `summative/API`
-4. Set the **Build Command** to `pip install -r requirements.txt`
-5. Set the **Start Command** to `uvicorn prediction:app --host 0.0.0.0 --port $PORT`
-6. Once deployed, update the URLs at the top of this README and the `.env` file in the Flutter app
 
 ## Models Trained
 
